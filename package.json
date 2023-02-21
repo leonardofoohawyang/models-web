@@ -1,0 +1,18 @@
+{
+    "name": "models-web",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/Aaron-Hsieh-0129/models-web.git",
+    "author": "Aaron@39 <b08209006@ntu.edu.tw>",
+    "license": "MIT",
+    "scripts": {
+        "start": "cd frontend && yarn start",
+        "server": "cd backend && yarn server",
+        "install:prod": "cd frontend && yarn install --freeze-lockfile && cd ../backend && yarn install --freeze-lockfile",
+        "build": "cd frontend && yarn build",
+        "deploy": "cd backend && yarn deploy"
+    },
+    "dependencies": {
+        "gh-pages": "^5.0.0"
+    }
+}
