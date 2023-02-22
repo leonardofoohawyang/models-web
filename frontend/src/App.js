@@ -42,7 +42,7 @@ function App() {
         case "/vvm":
             title = "";
             metaDescription = "";
-        break;
+            break;
         case "/our-work":
             title = "";
             metaDescription = "";
