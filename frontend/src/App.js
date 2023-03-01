@@ -9,6 +9,7 @@ import QCM from "./pages/QCM";
 import CSSWM from "./pages/CSSWM";
 import VVM from "./pages/VVM";
 import OurWork from "./pages/OurWork";
+import DocCSSWM from "./pages/Documentation/DocCSSWM";
 import { useEffect } from "react";
 
 function App() {
@@ -76,6 +77,8 @@ function App() {
             <Route path="/vvm" element={<VVM />} />
 
             <Route path="/our-work" element={<OurWork />} />
+
+            <Route path="/doc-csswm" element={<DocCSSWM />} />
         </Routes>
     );
 }

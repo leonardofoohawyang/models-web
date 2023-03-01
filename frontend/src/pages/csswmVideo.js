@@ -9,12 +9,14 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 
-const CsswmVideo = () => {
-    const [videoSrc, setVideoSrc] = useState('../Barotropic/180/sphere_cartopy/zeta.mov');
-    const [videoSrcWithAlpha, setVideoSrcWithAlpha] = useState('../Cosine Ball/180/0/sphere_cartopy/h+wind.mov');
+const CsswmVideo = ({chooseCase, setCase}) => {
+    console.log(chooseCase)
 
-    const [img1Src, set1ImgSrc] = useState('../grid/longitudeOnCube.png');
-    const [img2Src, set2ImgSrc] = useState('../grid/latitudeOnCube.png');
+    const [videoSrc, setVideoSrc] = useState('../CSSWM/Barotropic/180/sphere_cartopy/zeta.mov');
+    const [videoSrcWithAlpha, setVideoSrcWithAlpha] = useState('../CSSWM/Cosine Ball/180/0/sphere_cartopy/h+wind.mov');
+
+    const [img1Src, set1ImgSrc] = useState('../CSSWM/grid/longitudeOnCube.png');
+    const [img2Src, set2ImgSrc] = useState('../CSSWM/grid/latitudeOnCube.png');
     const [coordinate, setCoordinate] = useState("lonlat");
     const handleChangeImg = (event) => {
         let newValue = event.target.value;
@@ -22,43 +24,43 @@ const CsswmVideo = () => {
         set1ImgSrc((cur) => {
             if (newValue === "lonlat") {
                 let tmp = cur.split('/');
-                tmp[2] = "longitudeOnCube.png";
+                tmp[3] = "longitudeOnCube.png";
                 return tmp.join('/');
             }
             if (newValue === "xy") {
                 let tmp = cur.split('/');
-                tmp[2] = "xOnCube.png";
+                tmp[3] = "xOnCube.png";
                 return tmp.join('/');
             }
         })
         set2ImgSrc((cur) => {
             if (newValue === "lonlat") {
                 let tmp = cur.split('/');
-                tmp[2] = "latitudeOnCube.png";
+                tmp[3] = "latitudeOnCube.png";
                 return tmp.join('/');
             }
             if (newValue === "xy") {
                 let tmp = cur.split('/');
-                tmp[2] = "yOnCube.png";
+                tmp[3] = "yOnCube.png";
                 return tmp.join('/');
             }
         })
     }
 
 
-    const [chooseCase, setCase] = useState('Barotropic');
+    // const [chooseCase, setCase] = useState('Barotropic');
     const handleChangeCase = (event, newValue) => {
         setCase(newValue);
         let tmp = {target: {value: "h+wind"}}
         handleChangeVar(tmp) // to avoid error because there is no zeta in other case
         setVideoSrc((cur) => {
             let tmp = cur.split('/');
-            tmp[1] = newValue;
+            tmp[2] = newValue;
             return tmp.join('/');
         });
         setVideoSrcWithAlpha((cur) => {
             let tmp = cur.split('/');
-            tmp[1] = newValue;
+            tmp[2] = newValue;
             return tmp.join('/');
         });
     };
@@ -69,12 +71,12 @@ const CsswmVideo = () => {
         setResolution(newValue);
         setVideoSrc((cur) => {
             let tmp = cur.split('/');
-            tmp[2] = newValue;
+            tmp[3] = newValue;
             return tmp.join('/');
         });
         setVideoSrcWithAlpha(() => {
             let out = videoSrcWithAlpha.split('/');
-            out[2] = newValue;
+            out[3] = newValue;
             return out.join('/')
         });
     };
@@ -85,12 +87,12 @@ const CsswmVideo = () => {
         setProjection(newValue);
         setVideoSrc((cur) => {
             let tmp = cur.split('/');
-            tmp[3] = newValue;
+            tmp[4] = newValue;
             return tmp.join('/');
         });
         setVideoSrcWithAlpha(() => {
             let out = videoSrcWithAlpha.split('/');
-            out[4] = newValue;
+            out[5] = newValue;
             return out.join('/')
         });
         
@@ -102,7 +104,7 @@ const CsswmVideo = () => {
         setAlpha(newValue);
         setVideoSrcWithAlpha(() => {
             let out = videoSrcWithAlpha.split('/');
-            out[3] = newValue;
+            out[4] = newValue;
             return out.join('/')
         });
     };
@@ -113,12 +115,12 @@ const CsswmVideo = () => {
         setVariable(newValue);
         setVideoSrc((cur) => {
             let tmp = cur.split('/');
-            tmp[4] = newValue + ".mov";
+            tmp[5] = newValue + ".mov";
             return tmp.join('/');
         });
         setVideoSrcWithAlpha(() => {
             let out = videoSrcWithAlpha.split('/');
-            out[5] = newValue + ".mov";
+            out[6] = newValue + ".mov";
             return out.join('/')
         });
     };
@@ -143,15 +145,15 @@ const CsswmVideo = () => {
                 <CardMedia
                     component="img"
                     style={{width: "50%"}}
-                    autoPlay 
-                    controls 
+                    // autoPlay 
+                    // controls 
                     src={src}
                 />
                 <CardMedia
                     component="img"
                     style={{width: "50%"}}
-                    autoPlay 
-                    controls 
+                    // autoPlay 
+                    // controls 
                     src={src2}
                 />
             </div>
@@ -293,16 +295,16 @@ const CsswmVideo = () => {
 
     return (
         <Box sx={{ width: '100%', typography: 'body1' }}>
-            <TabContext value={chooseCase} sx={{backgroundColor: 'lightgreen'}}>
+            <TabContext value={chooseCase} >
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <TabList onChange={handleChangeCase} aria-label="lab API tabs example">
-                        <Tab label="Grid" value="Grid" />
-                        <Tab label="Barotropic" value="Barotropic" />
-                        <Tab label="Gravity Wave" value="Gravity Wave" />
-                        <Tab label="Cosine Ball" value="Cosine Ball" />
-                        <Tab label="Rossby-Hauwrwitz Wave" value="Rossby-Hauwrwitz wave" />
-                        <Tab label="Mountain" value="Mountain" />
-                        <Tab label="Geostrophic" value="Geostrophic" />
+                    <TabList onChange={handleChangeCase}>
+                        <Tab style={{textTransform: "none"}} label="Grid" value="Grid" />
+                        <Tab style={{textTransform: "none"}} label="Barotropic" value="Barotropic" />
+                        <Tab style={{textTransform: "none"}} label="Gravity Wave" value="Gravity Wave" />
+                        <Tab style={{textTransform: "none"}} label="Cosine Ball" value="Cosine Ball" />
+                        <Tab style={{textTransform: "none"}} label="Rossby-Hauwrwitz Wave" value="Rossby-Hauwrwitz wave" />
+                        <Tab style={{textTransform: "none"}} label="Mountain" value="Mountain" />
+                        <Tab style={{textTransform: "none"}} label="Geostrophic" value="Geostrophic" />
                     </TabList>
 
 

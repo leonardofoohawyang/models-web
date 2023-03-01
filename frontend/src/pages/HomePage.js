@@ -36,7 +36,7 @@ const HomePage = () => {
         navigate("/our-work");
     }, [navigate]);
 
-    const randomImages = ['../Barotropic/180/sphere_cartopy/zeta.gif', '../Cosine Ball/180/pi:4/sphere_cartopy/h+wind.gif', '../Rossby-Hauwrwitz wave/180/sphere_cartopy/h+wind.gif'];
+    const randomImages = ['../CSSWM/Barotropic/180/sphere_cartopy/zeta.gif', '../CSSWM/Cosine Ball/180/pi:4/sphere_cartopy/h+wind.gif', '../CSSWM/Rossby-Hauwrwitz wave/180/sphere_cartopy/h+wind.gif'];
     // eslint-disable-next-line no-unused-vars
     const [imagePath, setImagePath] = useState(randomImages[Math.floor(Math.random()*randomImages.length)]);
     
@@ -66,8 +66,7 @@ const HomePage = () => {
                             color: "#000",
                             
                         }}  
-                    >{`Run Models Online & Draw Results Immediately`}</b>
-                    {/* <img alt="" src="../vector-1.svg"/> */}
+                    >{`SWM on Cubed Sphere & 2D Cloud Resolving Models`}</b>
                     <hr style={{border: "2.5px solid rgb(6, 44, 123)", borderRadius: "7px 7px 7px 7px"}} />
                 </StyledDiv>
                 <img

@@ -157,7 +157,7 @@ const OurWork = () => {
                                 objectFit: "cover",
                             }}
                             alt=""
-                            src="../Cosine Ball/180/0/sphere_cartopy/h+wind.gif"
+                            src="../CSSWM/Cosine Ball/180/0/sphere_cartopy/h+wind.gif"
                         />
                     </div>
 
@@ -198,7 +198,7 @@ const OurWork = () => {
                                 objectFit: "cover",
                             }}
                             alt=""
-                            src="../Cosine Ball/180/0/sphere_cartopy/h+wind.gif"
+                            src="../CSSWM/Cosine Ball/180/0/sphere_cartopy/h+wind.gif"
                         />
                     </div>
 
@@ -240,7 +240,7 @@ const OurWork = () => {
                                 objectFit: "cover",
                             }}
                             alt=""
-                            src="../Cosine Ball/180/0/sphere_cartopy/h+wind.gif"
+                            src="../CSSWM/Cosine Ball/180/0/sphere_cartopy/h+wind.gif"
                         />
                     </div>
                 </div>
